@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task2</title>
+    <style>
+        .navigation {
+          margin-top: 10px;
+        }
+      </style>
+</head>
+<body>
+  <h1>Click the link to Navigate</h1>
+  <div id="page1">
+    <h2>Page 1</h2>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page2')">Go to Page 2</a>
+      <button>next</button>
+    </div>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page3')">Go to Page 3</a>
+      <button>next</button>
+    </div>
+    <div class="navigation">
+      <a href="#" onclick="history.back()">Go back to Page 2</a>
+      <button>previous</button>
+    </div>
+  </div>
+
+  <div id="page2" style="display: none;">
+    <h2>Page 2</h2>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page1')">Go back to Page 1</a>
+      <button>previous</button>
+    </div>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page3')">Go to Page 3</a>
+      <button>next</button>
+    </div>
+    <div class="navigation">
+      <a href="#" onclick="history.back()">Go back to Page 2</a>
+      <button>previous</button>
+    </div>
+  </div>
+
+  <div id="page3" style="display: none;">
+    <h2>Page 3</h2>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page1')">Go back to Page 1</a>
+      <button>previous</button>
+    </div>
+    <div class="navigation">
+      <a href="#" onclick="showPage('page2')">Go back to Page 2</a>
+      <button>previous</button>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      var pages = document.querySelectorAll('div[id^="page"]');
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none';
+      }
+      var page = document.getElementById(pageId);
+      if (page) {
+        page.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
